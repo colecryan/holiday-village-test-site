@@ -74,10 +74,10 @@ function findAnswers(text) {
     <a class="logo" href="index.html" aria-label="Holiday Village start page"><img src="${LOGO}" alt="Holiday Village" width="205" height="105"></a>
     <div class="ask" role="search">
       <label for="ask">What do you need?</label>
-      <div class="ask-row"><input id="ask" type="search" placeholder='Try "trash day" or "pool"' autocomplete="off"><button type="button" class="btn" id="ask-go">Find it</button></div>
+      <div class="ask-row"><input id="ask" type="search" placeholder='Try "trash day"' autocomplete="off"><button type="button" class="btn" id="ask-go">Find it</button></div>
     </div>
-    <a class="call" href="tel:${OFFICE.tel}"><small>Call the office</small>${OFFICE.phone}</a>
-    <button type="button" class="comfort-btn" id="comfort-btn" aria-expanded="false" aria-controls="comfort"><b>Aa</b> Easier to read</button>
+    <a class="call" href="tel:${OFFICE.tel}" aria-label="Call the office, ${OFFICE.phone}"><small>Call the office</small><span class="num">${OFFICE.phone}</span></a>
+    <button type="button" class="comfort-btn" id="comfort-btn" aria-expanded="false" aria-controls="comfort"><b>Aa</b> <span>Easier to read</span></button>
   </div>
   <div class="comfort" id="comfort" hidden><div class="wrap">
     <div class="comfort-group"><span>Text size</span>

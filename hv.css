@@ -343,3 +343,82 @@ html.strong .phero p.lede,html.strong .tile p,html.strong .card p{color:#000}
 
 @media (max-width:1000px){ .doors{grid-template-columns:1fr} .door{display:grid;grid-template-columns:200px 1fr} .door img{height:100%;aspect-ratio:auto} .browse{grid-template-columns:1fr 1fr} }
 @media (max-width:720px){ .door{display:flex} .door img{aspect-ratio:16/9;height:auto} .questions,.browse,html.xl .tiles,html.xl .cards,html.xl .browse,html.xl .people{grid-template-columns:1fr} .door-hero .wrap{padding:40px 0} }
+
+/* Phones: same design, made for a small screen held in one hand.
+   Short header (two rows), doors and cards as compact rows with a small photo, less scrolling. */
+@media (max-width:720px){
+  .top>.wrap{display:grid;grid-template-columns:auto 1fr auto auto;align-items:center;gap:8px 8px;padding:8px 0 12px}
+  .logo img{height:44px}
+  .logo{grid-row:1;grid-column:1}
+  .call,.comfort-btn{grid-row:1}
+  .ask{grid-row:2;grid-column:1/-1;order:0;min-width:0}
+  .ask label{font-size:.7rem}
+  .ask input,.ask .btn{min-height:52px}
+  .ask .btn{padding:0 16px}
+  .call{grid-column:3;flex-direction:row;align-items:center;justify-content:center;gap:6px;min-height:52px;padding:0 12px;border:2px solid var(--berry);border-radius:12px;background:var(--berry);color:#fff;font:700 .85rem/1.1 var(--sans);white-space:normal;text-align:left;max-width:7.5em}
+  .call::before{content:"\260E";font-size:1.2rem}
+  .call small{font:inherit;letter-spacing:0;text-transform:none;color:inherit}
+  .call .num{display:none}
+  .comfort-btn{grid-column:4;min-height:52px;padding:0 10px;gap:6px;font-size:.8rem;white-space:normal;text-align:left;line-height:1.1}
+  .comfort-btn span{max-width:4.6em}
+  .backbar .wrap{padding:6px 0}
+  .back{min-height:48px;padding:0 16px}
+  section{padding:40px 0}
+  .sec-head{margin-bottom:20px}
+  .sec-head>div,.doc-group,.event>div{min-width:0}
+  h1,h2,h3,p,a,li,.kicker,summary{overflow-wrap:break-word}
+  .phero .wrap{gap:20px;padding:28px 0}
+  .phero .pic{aspect-ratio:16/9}
+  .jump{gap:8px;margin-top:18px}
+  .jump a{min-height:48px;padding:0 14px;font-size:.9rem}
+
+  /* start page: all three doors on one screen */
+  .door-hero .wrap{padding:28px 0 32px}
+  .door-hero .lede{font-size:1.05rem}
+  .doors{gap:12px;margin-top:20px}
+  .door,html.xl .door{display:grid;grid-template-columns:96px 1fr;border-width:3px;border-radius:16px}
+  .door img{height:100%;aspect-ratio:auto}
+  .door div{padding:14px 16px;gap:4px}
+  .door h2{font-size:1.3rem;display:flex;justify-content:space-between;gap:8px}
+  .door h2::after{content:"\2192";color:var(--berry);font-family:var(--sans)}
+  .door p{font-size:.85rem}
+  .door .btn{display:none}
+  .chips button{min-height:48px;padding:0 14px;font-size:.85rem}
+
+  /* events: date down the side, details beside it */
+  .event{grid-template-columns:68px 1fr;gap:6px 14px;padding:14px;align-items:start}
+  .date{flex-direction:column;gap:0;min-height:76px;border-radius:12px}
+  .date b{font-size:1.7rem;margin:2px 0}
+  .date small{font-size:.7rem}
+  .event h3{font-size:1.15rem}
+  .event .join{grid-column:1/-1;min-width:0}
+
+  /* photo cards: small photo beside the words */
+  .card{display:grid;grid-template-columns:104px 1fr;border-radius:14px}
+  .card img{height:100%;aspect-ratio:auto;min-height:110px}
+  .card div{padding:14px 16px}
+  .card h3{font-size:1.1rem}
+  .card p{font-size:.85rem}
+  .strip-photos{grid-template-rows:170px 120px 120px;gap:10px}
+
+  /* everyday questions: short pill so the question gets the width */
+  .questions{gap:10px}
+  .questions summary{min-height:64px;padding:12px 16px;font-size:1.1rem}
+  .questions summary::after{content:"Show";padding:7px 12px}
+  .questions details[open] summary::after{content:"Hide"}
+  .questions .answer-in{padding:0 16px 16px}
+  .docs a{grid-template-columns:minmax(0,1fr) auto;padding:12px 16px;gap:10px}
+  .story{padding:20px}
+  .fact{padding:16px 18px}
+  .foot{padding:40px 0 28px}
+}
+/* extra large text on a phone: logo on its own line, the two buttons share the next one */
+@media (max-width:720px){
+  html.xl .top>.wrap,html.big .top>.wrap{grid-template-columns:1fr auto}
+  html.xl .logo,html.big .logo{grid-column:1/-1}
+  html.xl .call,html.big .call{grid-row:2;grid-column:1;justify-self:start;max-width:none;margin-left:0}
+  html.xl .call small{display:block}
+  html.xl .comfort-btn,html.big .comfort-btn{grid-row:2;grid-column:2}
+  html.xl .ask,html.big .ask{grid-row:3}
+  html.xl .doors{grid-template-columns:1fr}
+}
