@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>My Info | Holiday Village</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hv.css">
+</head><body data-back="residents">
+<div data-top></div>
+<main id="main">
+
+<section class="phero" style="padding:0"><div class="wrap">
+  <div><span class="kicker">My Info</span><h1 id="hello">Your details, in one place</h1>
+    <p class="lede" id="hello-sub">See what the office has on file for you, change it yourself, and see what you've signed up for.</p>
+    <p style="margin-top:16px;font-weight:700">Events, news and forms are open to everyone. You only sign in here.</p></div>
+  <div class="pic"><img src="https://images.pexels.com/photos/6248436/pexels-photo-6248436.jpeg?auto=compress&cs=tinysrgb&w=1200" alt="A resident smiling at her tablet on the sofa"></div>
+</div></section>
+
+<section>
+  <div class="wrap">
+    <p class="notice"><b>Test design.</b> The live site's Your Profile sits behind a login we couldn't see, so this page shows how it could work, not how it works today. Any email and password will sign you in here, and the details are made up.</p>
+
+    <!-- signed out -->
+    <div id="out" class="split" style="align-items:start">
+      <form class="panel" id="signin">
+        <h2 style="margin-bottom:22px">Sign in</h2>
+        <div class="field"><label for="em">Your email address</label><input id="em" type="email" autocomplete="email" required></div>
+        <div class="field"><label for="pw">Your password</label><input id="pw" type="password" autocomplete="current-password" required></div>
+        <label class="check"><input type="checkbox" id="show"> Show my password as I type</label>
+        <label class="check"><input type="checkbox" checked> Keep me signed in on this computer</label>
+        <button class="btn" type="button" id="go" style="width:100%">Sign in</button>
+      </form>
+      <div>
+        <div class="help" style="margin-top:0"><b>First time, or forgot your password?</b>
+          <p>Call the office. They will set it up with you on the phone, one step at a time.</p>
+          <a class="big-phone" href="tel:+18568661753">(856) 866-1753</a>
+          <p>Monday, Tuesday, Wednesday and Friday 9 to 3, Thursday 9 to 4.</p></div>
+        <div class="help" style="background:var(--sun-lt)"><b>Once you're in, you can</b>
+          <ul style="margin:6px 0 0;padding-left:1.2em"><li>Check and change your phone, email and emergency contact</li><li>See the events you've signed up for</li><li>Find the papers that apply to your home</li></ul></div>
+      </div>
+    </div>
+
+    <!-- signed in (sample) -->
+    <div id="in" hidden>
+      <div class="sec-head"><div><h2>What the office has on file</h2><p>Something wrong or out of date? Press Change next to it. The office sees your change straight away.</p></div>
+        <button class="btn light" type="button" id="signout">Sign out</button></div>
+      <dl class="mine">
+        <div class="row"><dt>Name</dt><dd>Margaret Ellis</dd><button class="btn light" type="button">Change</button></div>
+        <div class="row"><dt>Home</dt><dd>Condo, Building 15</dd><span></span></div>
+        <div class="row"><dt>Phone</dt><dd>(856) 555-0142</dd><button class="btn light" type="button">Change</button></div>
+        <div class="row"><dt>Email</dt><dd>margaret.ellis@example.com</dd><button class="btn light" type="button">Change</button></div>
+        <div class="row"><dt>Emergency contact</dt><dd>David Ellis (son), (609) 555-0187</dd><button class="btn light" type="button">Change</button></div>
+        <div class="row"><dt>Password</dt><dd>Last changed in March</dd><button class="btn light" type="button" data-pw>Change</button></div>
+      </dl>
+      <p style="margin-top:12px;color:var(--soft)">To change your home, call the office.</p>
+
+      <h2 style="margin:48px 0 18px">You're signed up for</h2>
+      <div class="events">
+        <article class="event"><div class="date"><small>Sat</small><b>9</b><small>Jan</small></div>
+          <div><h3>Game Show trivia night</h3><p class="when">6:30 to 9 p.m., Clubhouse</p><p>You and 1 guest. Guest fee $5, paid at sign-up.</p></div>
+          <div class="join"><span class="chip">You're on the list</span><br>Can't make it? Call the office.</div></article>
+      </div>
+
+      <h2 style="margin:48px 0 18px">For your condo</h2>
+      <div class="facts">
+        <div class="fact"><b>New fees in January</b><p>Check you're paying the new amount. Automatic payment stops late fees; the form is on TownSq, the condo app.</p></div>
+        <div class="fact"><b>Your condo office</b><p>Associa: <a href="tel:+18888848490">888-884-8490</a>. Condo Community Manager: Lisa L. Cobuzio.</p></div>
+        <div class="fact"><b>Rules for your building</b><p>Small tables and chairs only on decks, a saucer under planters, nothing hung on railings. Full rules are on TownSq.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-foot></div>
+<script src="hv-data.js"></script>
+<script src="hv.js"></script>
+<script>
+// Test-design behaviour: any sign-in works; "Change" edits the line in place, on the same screen.
+const out = document.getElementById('out'), inn = document.getElementById('in');
+function show(signedIn) {
+  out.hidden = signedIn; inn.hidden = !signedIn;
+  document.getElementById('hello').textContent = signedIn ? 'Hello, Margaret' : 'Your details, in one place';
+  document.getElementById('hello-sub').textContent = signedIn ? 'Here is everything the office has for you. Change anything that\'s out of date below.' : 'See what the office has on file for you, change it yourself, and see what you\'ve signed up for.';
+}
+document.getElementById('show').addEventListener('change', e => document.getElementById('pw').type = e.target.checked ? 'text' : 'password');
+// a click, not a form submit: the Workspace viewer blocks form submits
+const f = document.getElementById('signin');
+const signIn = () => { if (!f.reportValidity()) return; show(true); history.replaceState(null, '', '#signed-in'); scrollTo(0, 0); };
+document.getElementById('go').addEventListener('click', signIn);
+f.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.tagName === 'INPUT' && e.target.type !== 'checkbox') { e.preventDefault(); signIn(); } });
+document.getElementById('signout').addEventListener('click', () => { show(false); history.replaceState(null, '', location.pathname); });
+if (location.hash === '#signed-in') show(true);
+
+document.querySelectorAll('.row button').forEach(b => b.addEventListener('click', () => {
+  const row = b.closest('.row'), dd = row.querySelector('dd'), label = row.querySelector('dt').textContent;
+  if (b.textContent === 'Change') {
+    const isPw = b.hasAttribute('data-pw');
+    dd.dataset.old = dd.textContent;
+    dd.innerHTML = `<input aria-label="New ${label.toLowerCase()}" type="${isPw ? 'password' : 'text'}" value="${isPw ? '' : dd.textContent.replace(/"/g, '&quot;')}">`;
+    dd.querySelector('input').focus();
+    b.textContent = 'Save'; b.classList.remove('light');
+  } else {
+    const v = dd.querySelector('input').value.trim();
+    dd.textContent = b.hasAttribute('data-pw') ? 'Changed just now' : (v || dd.dataset.old);
+    dd.insertAdjacentHTML('beforeend', '<span class="saved" role="status">Saved</span>');
+    b.textContent = 'Change'; b.classList.add('light');
+  }
+}));
+</script>
+</body></html>

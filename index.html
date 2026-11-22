@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Holiday Village 55+ | Mount Laurel, NJ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hv.css">
+</head><body>
+<div data-top></div>
+<div class="welcome-back" id="welcome-back" hidden><div class="wrap"><span>Welcome back! Last time you went to the residents' page.</span><a class="btn arrow" href="residents.html">Go straight there</a></div></div>
+<main id="main">
+
+<section class="door-hero" style="padding:0">
+  <img src="https://holidayvillage55.com/wp-content/uploads/2023/11/Holiday_Village_-27.jpg" alt="The Holiday Village clubhouse, pool and courts from above, among fall trees">
+  <div class="wrap">
+    <h1>Welcome to <em>Holiday Village</em></h1>
+    <p class="lede">What brings you here today? Pick one, and we'll take you straight there.</p>
+    <div class="doors">
+      <a class="door" href="residents.html" data-who="resident">
+        <img src="https://images.pexels.com/photos/6838621/pexels-photo-6838621.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="Three neighbors laughing together at a table outdoors">
+        <div><h2>I live here</h2><p>What's on, this month's newsletter, forms, and answers to everyday questions, all on one page.</p><span class="btn arrow">Residents' page</span></div></a>
+      <a class="door" href="new-here.html" data-who="new">
+        <img src="https://images.pexels.com/photos/32758373/pexels-photo-32758373.jpeg?auto=compress&cs=tinysrgb&w=1000" alt="A smiling man welcoming someone at his front door">
+        <div><h2>I've just moved in</h2><p>Six simple steps to feeling at home, and who to call for what.</p><span class="btn arrow">Start settling in</span></div></a>
+      <a class="door" href="visit.html" data-who="visitor">
+        <img src="https://holidayvillage55.com/wp-content/uploads/slider2/HolidayVillagePool.jpeg" alt="The village pool with loungers and umbrellas">
+        <div><h2>I'm thinking of moving here</h2><p>For you, or for someone in your family: what life here is really like.</p><span class="btn arrow">See life here</span></div></a>
+    </div>
+    <p style="margin-top:32px;font-weight:700">Or just ask. Press one of these:</p>
+    <div class="chips">
+      <button type="button" data-ask="trash">When is trash day?</button>
+      <button type="button" data-ask="events this week">What's on this week?</button>
+      <button type="button" data-ask="pool guest">Can I bring a guest to the pool?</button>
+      <button type="button" data-ask="office hours">When is the office open?</button>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><div><span class="kicker">Around the village</span><h2>711 homes, one neighborhood</h2><p>A 55+ community in Mount Laurel, New Jersey, close to Philadelphia, the Jersey Shore and Atlantic City.</p></div></div>
+    <div class="strip-photos">
+      <figure><img src="https://holidayvillage55.com/wp-content/uploads/2023/11/Holiday_Village_-13.jpg" alt="The bright clubhouse ballroom"><figcaption>The ballroom</figcaption></figure>
+      <figure><img src="https://holidayvillage55.com/wp-content/uploads/2023/11/Holiday_Village_Drone-Screenshot-5.jpg" alt="Tennis and pickleball courts by the pond"><figcaption>Pickleball and tennis</figcaption></figure>
+      <figure><img src="https://holidayvillage55.com/wp-content/uploads/2023/11/Holiday_Village_-4.jpg" alt="The clubhouse library"><figcaption>The library</figcaption></figure>
+      <figure><img src="https://holidayvillage55.com/wp-content/uploads/2023/11/Holiday_Village_Drone-Screenshot-8.jpg" alt="The village pond with fall trees"><figcaption>The pond</figcaption></figure>
+      <figure><img src="https://holidayvillage55.com/wp-content/uploads/2023/11/Holiday_Village_Drone-Screenshot-6.jpg" alt="The white gazebo on the green"><figcaption>The gazebo</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-foot></div>
+<script src="hv-data.js"></script>
+<script src="hv.js"></script>
+<script>
+// Remember which door was picked; a returning resident gets a one-click way back (never a surprise jump).
+document.querySelectorAll('[data-who]').forEach(a => a.addEventListener('click', () => store.set('hv-who', a.dataset.who)));
+if (store.get('hv-who') === 'resident') document.getElementById('welcome-back').hidden = false;
+</script>
+</body></html>

@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Residents' page | Holiday Village</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hv.css">
+</head><body data-back="start">
+<div data-top></div>
+<main id="main">
+
+<section class="phero" style="padding:0"><div class="wrap">
+  <div><span class="kicker" id="today">Today</span><h1 id="greet">Hello, neighbor</h1>
+    <p class="lede">Everything a resident looks for, on this one page. Start with what's coming up, or press a question below to see its answer right here.</p>
+    <div class="jump"><a href="#coming">Coming up</a><a href="#questions">Everyday questions</a><a href="#villager">The newsletter</a><a href="#browse">Everything else</a></div></div>
+  <div class="pic"><img src="https://holidayvillage55.com/wp-content/uploads/2023/11/Holiday_Village_-3.jpg" alt="The clubhouse lounge with armchairs and a sofa"></div>
+</div></section>
+
+<section id="coming">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="kicker">Coming up</span><h2>Next at the clubhouse</h2><p>From the December Villager. Most events need no sign-up; the ones that do say so.</p></div>
+      <a class="btn light arrow" href="whats-on.html">See everything that's on</a></div>
+    <div class="events" id="next"><p>Open <a href="whats-on.html">What's On</a> for every event.</p></div>
+    <p style="margin-top:16px"><b>Every week:</b> chair yoga for strength and balance, Mondays at 11:15 a.m. and Wednesdays at 9:30 a.m., in the Clubhouse.</p>
+  </div>
+</section>
+
+<section id="questions" class="tint">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="kicker">Everyday questions</span><h2>Press a question to see the answer</h2><p>The answer opens right here. Don't see yours? Type it in the "What do you need?" box at the top, or call the office.</p></div></div>
+    <div class="questions" id="qs"></div>
+  </div>
+</section>
+
+<section id="villager">
+  <div class="wrap">
+    <div class="villager">
+      <div class="cover"><small>The Villager</small><b>December 2026</b><small>Your monthly newsletter</small>
+        <img src="https://holidayvillage55.com/wp-content/uploads/2023/11/Holiday_Village_Drone-Screenshot-6.jpg" alt="The gazebo on the village green"></div>
+      <div><span class="kicker">This month's newsletter</span><h2>The Villager is here</h2>
+        <p class="lede" style="margin-top:12px">A word from Board President Bruce Sleister, winter events, the snow plan, a day trip to Bordentown and the movie quote puzzle.</p>
+        <div class="btn-row"><a class="btn arrow" href="https://holidayvillage55.com/wp-content/uploads/2026/11/December-2026-compressed-pdfa-3b.pdf">Read the December Villager</a>
+          <a class="btn light" href="news.html#villager">Older issues</a></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="browse" class="tint">
+  <div class="wrap">
+    <div class="sec-head"><div><span class="kicker">Everything else</span><h2>Browse the whole site</h2></div></div>
+    <nav class="browse" aria-label="Every resident page">
+      <a href="whats-on.html">Events, clubs and the clubhouse</a>
+      <a href="news.html">News and every Villager</a>
+      <a href="forms.html">Forms and rules</a>
+      <a href="board.html">The Board and meeting notes</a>
+      <a href="my-info.html">My Info: your details</a>
+      <a href="contact.html">Contact the office</a>
+    </nav>
+  </div>
+</section>
+
+</main>
+<div data-foot></div>
+<script src="hv-data.js"></script>
+<script src="hv.js"></script>
+<script>
+const now = new Date();
+document.getElementById('today').textContent = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+document.getElementById('greet').textContent = now.getHours() < 12 ? 'Good morning, neighbor' : now.getHours() < 17 ? 'Good afternoon, neighbor' : 'Good evening, neighbor';
+const next = upcoming(4);
+if (next.length) document.getElementById('next').innerHTML = next.map(eventCard).join('');
+document.getElementById('qs').innerHTML = ANSWERS.filter(x => x.id !== 'new' && x.id !== 'events')
+  .map(x => `<details id="q-${x.id}"><summary>${esc(x.q)}</summary><div class="answer-in">${answerHtml(x)}</div></details>`).join('');
+</script>
+</body></html>

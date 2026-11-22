@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Contact | Holiday Village</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="hv.css">
+</head><body data-back="start">
+<div data-top></div>
+<main id="main">
+
+<section class="phero" style="padding:0"><div class="wrap">
+  <div><span class="kicker">Contact</span><h1>Talk to a real person at the office</h1>
+    <p class="lede">The quickest way is to call. You can also stop by, or send a message below.</p>
+    <a class="big-phone" style="font-size:2.4rem;margin-top:18px" href="tel:+18568661753">(856) 866-1753</a>
+    <p style="margin-top:6px">Monday, Tuesday, Wednesday and Friday 9 a.m. to 3 p.m.<br>Thursday 9 a.m. to 4 p.m. Appointments by request.</p></div>
+  <div class="pic"><img src="https://holidayvillage55.com/wp-content/uploads/2023/01/video.jpg" alt="The clubhouse entrance with flower beds and fall trees"></div>
+</div></section>
+
+<section>
+  <div class="wrap">
+    <div class="split" style="align-items:start">
+      <form class="panel" id="msg">
+        <h2 style="margin-bottom:22px">Send a message</h2>
+        <div class="field"><label for="n">Your name</label><input id="n" autocomplete="name" required></div>
+        <div class="field"><label for="r">Your phone or email</label><small>However you'd like the office to reply.</small><input id="r" required></div>
+        <div class="field"><label for="m">Your message</label><textarea id="m" required></textarea></div>
+        <button class="btn" type="button" id="send" style="width:100%">Send to the office</button>
+        <p class="help" id="sent" hidden role="status"><b>Thank you, your message is on its way.</b>The office will get back to you the way you asked. (Test design: nothing was really sent.)</p>
+      </form>
+      <div>
+        <div class="facts" style="grid-template-columns:1fr">
+          <div class="fact"><b>Visit</b><p>1 Holiday Blvd.<br>Mount Laurel, NJ 08054</p></div>
+          <div class="fact"><b>Condo owners</b><p>Fees and building questions go to the Associa condo office: <a href="tel:+18888848490">888-884-8490</a>.</p></div>
+          <div class="fact"><b>Streets and plowing</b><p>Mount Laurel Public Works: <a href="tel:+18562342070">856-234-2070</a>.</p></div>
+          <div class="fact" style="border-left-color:var(--berry)"><b>Emergency</b><p>Call 911. The village office can't respond to medical needs.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+<div data-foot></div>
+<script src="hv-data.js"></script>
+<script src="hv.js"></script>
+<script>
+// a click, not a form submit: the Workspace viewer blocks form submits
+document.getElementById('send').addEventListener('click', () => { if (document.getElementById('msg').reportValidity()) document.getElementById('sent').hidden = false; });
+</script>
+</body></html>
